@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="JumpStartUI">
+
+<head>
+
+    <title>Jump Start UI</title>
+    <base href="/">
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- style sheets -->
+    <link rel="stylesheet" href="styles/lib/bootswatch.css">
+    <link rel="stylesheet" href="styles/project-css.css">
+</head>
+
+<body>
+<div ng-controller="HeaderCtrl" ng-include="'views/header.html'" id="header-parent"></div>
+<div ng-view></div>
+<div ng-controller="FooterCtrl" ng-include="'views/footer.html'" id="footer-parent"></div>
+
+<!-- Library files -->
+<script src="./bower_components/angular/angular.min.js"></script>
+<script src="./bower_components/angular-route/angular-route.js"></script>
+<script src="./bower_components/angular-resource/angular-resource.js"></script>
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="scripts/app.js"></script>
+<script src="scripts/config.js"></script>
+<script src="scripts/login.js"></script>
+
+<!-- public controllers -->
+<script src="scripts/controllers/home-page.js"></script>
+<script src="scripts/controllers/contacts-lists.js"></script>
+<script src="scripts/controllers/header.js"></script>
+<script src="scripts/controllers/footer.js"></script>
+
+<!-- factories -->
+<script src="scripts/factories/contacts-query.js"></script>
+</body>
+
+</html>

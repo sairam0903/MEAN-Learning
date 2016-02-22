@@ -1,0 +1,55 @@
+<div class="container" id="contacts-list">
+    <ol class="breadcrumb">
+        <li><a href="/helloworld/home">Home</a></li>
+        <li><a href="/helloworld/contact">Contact List</a></li>
+    </ol>
+    <h1>Create new contact</h1>
+    <form class="form-horizontal" role="form" method="POST" name="newContact">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="fsName">First Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="fsName" placeholder="First Name" ng-model="user.fsName" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="lsName">Last Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="lsName" placeholder="Last Name" ng-model="user.lsName" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="user.email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Phone:</label>
+            <div class="col-sm-10">
+                <input type="tel" class="form-control" id="pwd" placeholder="Phone number" ng-model="user.phone" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default pull-right" ng-click="saveContact(user)">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <h1>My Contact List</h1>
+    <table class="table table-hovered">
+        <thead>
+            <tr>
+                <th ng-repeat="detail in tableHead">{{detail}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contactDetail in contacts">
+                <td>{{contactDetail.fsName}}</td>
+                <td>{{contactDetail.lsName}}</td>
+                <td>{{contactDetail.email}}</td>
+                <td>{{contactDetail.phone}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

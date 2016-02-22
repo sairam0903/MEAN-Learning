@@ -1,0 +1,30 @@
+#header {
+    background-color: #EFEFEF ;
+}
+
+#header > p {
+    padding: 12px;
+}
+
+#footer {
+    background-color: #E4E4E4;
+    padding: 7px;
+}
+
+#footer-parent {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#header-parent {
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#contacts-list h1{
+    border-bottom: 1px solid grey;
+    padding-bottom: 12px;
+}
