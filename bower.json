@@ -1,9 +1,9 @@
 {
-  "name": "Jump-Start-UI",
+  "name": "MEAN-Learning",
   "authors": [
-    "Prachi"
+    "Sai Ram Gupta Chittimilla"
   ],
-  "description": "",
+  "description": "frontend components",
   "main": "main.html",
   "moduleType": [
     "node"

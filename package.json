@@ -1,13 +1,18 @@
 {
   "name": "MEAN-Learning",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "MEAN project for learners",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sairam0903/MEAN-Learning.git"
   },
-  "author": "",
+  "author": "Sai Ram Gupta Chittimilla",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sairam0903/MEAN-Learning/issues"
+  },
+  "homepage": "https://github.com/sairam0903/MEAN-Learning#readme",
   "dependencies": {
     "body-parser": "^1.14.2",
     "bourne": "^0.4.0",
