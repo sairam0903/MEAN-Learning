@@ -31,17 +31,35 @@ router
 router
     .route('/contact/:id')
     .get(function (req, res) {
-        console.log(req.params.id);
-
         //Finding the contact which contains the id in the list
         contactDetails.findById(req.params.id, function (err, data){
-            //if (err) {
-            //    throw err;
-            //} else{
-                res.send("data: ",data);
-            //}
-            //res.send({"message" : "TODO buddy", "id": req.params.id})
+            if (err)
+                res.send(err);
+            res.json(data);
         })
+    })
+    .delete(function(req, res) {
+        contactDetails.remove({ _id: req.params.id}, function(err, data) {
+            if (err)
+                res.send(err);
+            res.json(data);
+        });
+    })
+    .put(function(req, res){
+        contactDetails.findById(req.params.id, function(err, contact){
+            if(err)
+                res.send(err);
+            contact.lastName    = req.body.lastName;
+            contact.firstName   = req.body.firstName;
+            contact.email       = req.body.email;
+            contact.phoneNumber = req.body.phoneNumber;
+            contact.save(function(err, updatedContact){
+                if(err)
+                    res.send(err);
+
+                res.json(updatedContact);
+            });
+        });
     });
 
 module.exports = router;
