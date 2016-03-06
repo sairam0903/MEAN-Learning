@@ -1,6 +1,21 @@
 var express = require('express'),
-    api     = require('./api'),
+    mongoose   = require('mongoose');
+
+    //initialize mongoose schemas
+    require('./Schemas/new-contact-schema');
+
+var api     = require('./api'),
     app     = express();
+
+    //connect to local mongodb database
+    mongoose.connect('mongodb://127.0.0.1:27017/contacts', function (error) {
+        if (error) throw error;
+    });
+
+    //attach lister to connected event
+    mongoose.connection.once('connected', function() {
+        console.log("Connected to database !!")
+    });
 
 app
     .use(express.static('./node_modules'))

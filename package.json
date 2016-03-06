@@ -15,8 +15,8 @@
   "homepage": "https://github.com/sairam0903/MEAN-Learning#readme",
   "dependencies": {
     "body-parser": "^1.14.2",
-    "bourne": "^0.4.0",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "mongoose": "^4.4.6"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"
