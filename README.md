@@ -13,4 +13,4 @@ To install the dependencies for the app, open the terminal/cmd prompt and naviga
 --------------------------
 TO run the app, open the terminal/cmd prompt and navigate to the app folder and type
 
-`nodemon server.js`
+`gulp`
