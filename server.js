@@ -1,14 +1,10 @@
-var express    = require('express'),
-    mongoose   = require('mongoose');
-
-    //initialize mongoose schemas
-    require('./Schemas/new-contact-schema');
-
-var api     = require('./api'),
-    app     = express();
+var express  = require('express'),
+    mongoose = require('mongoose'),
+    api      = require('./api'),
+    app      = express();
 
     //connect to local mongodb database
-    mongoose.connect('mongodb://127.0.0.1:27017/contacts', function (error) {
+    mongoose.connect('mongodb://sairam0903:indianLORDS44!@ds017852.mlab.com:17852/mydata', function (error) {
         if (error) throw error;
     });
 

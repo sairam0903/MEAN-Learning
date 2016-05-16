@@ -13,4 +13,4 @@ ContactSchema = new Schema({
 });
 
 // Mongoose Model definition
-mongoose.model('contacts', ContactSchema);
+module.exports = mongoose.model('contacts', ContactSchema);

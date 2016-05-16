@@ -1,11 +1,11 @@
-var express    = require('express'),
-    mongoose   = require('mongoose'),
-    bodyParser = require('body-parser'),
-    router     = express.Router(),
-    contactDetails = mongoose.model('contacts');
+var express        = require('express'),
+    bodyParser     = require('body-parser'),
+    contactDetails = require('./schemas/new-contact-schema'),
+    router         = express.Router();
 
 router
     .use(bodyParser.json())
+    .use(bodyParser.urlencoded({ extended: true }))
 
     .route('/contact')
     .get(function (req, res) {
@@ -15,12 +15,12 @@ router
     })
     .post(function (req, res) {
 
-        var newContact = new contactDetails();
-
-        newContact.lastName    = req.body.lastName;
-        newContact.firstName   = req.body.firstName;
-        newContact.email       = req.body.email;
-        newContact.phoneNumber = req.body.phoneNumber;
+        var newContact = contactDetails({
+            lastName    : req.body.lastName,
+            firstName   : req.body.firstName,
+            email       : req.body.email,
+            phoneNumber : req.body.phoneNumber
+        });
 
         newContact.save(function (err, data) {
             if (err) res.send(500, err);
@@ -46,19 +46,15 @@ router
         });
     })
     .put(function(req, res){
-        contactDetails.findById(req.params.id, function(err, contact){
+        contactDetails.findByIdAndUpdate(req.params.id, {
+            lastName    : req.body.lastName,
+            firstName   : req.body.firstName,
+            email       : req.body.email,
+            phoneNumber : req.body.phoneNumber
+        }, function(err, contact){
             if(err)
                 res.send(err);
-            contact.lastName    = req.body.lastName;
-            contact.firstName   = req.body.firstName;
-            contact.email       = req.body.email;
-            contact.phoneNumber = req.body.phoneNumber;
-            contact.save(function(err, updatedContact){
-                if(err)
-                    res.send(err);
-
-                res.json(updatedContact);
-            });
+            res.json(contact);
         });
     });
 
